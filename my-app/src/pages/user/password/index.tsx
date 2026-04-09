@@ -1,5 +1,9 @@
-const UserPasswordSettingPage = () => {
-    return <div>Password Setting Page</div>;
+const userPassword = () => {
+  return (
+    <div>
+        user password page
+    </div>
+  );
 };
 
-export default UserPasswordSettingPage;
+export default userPassword;

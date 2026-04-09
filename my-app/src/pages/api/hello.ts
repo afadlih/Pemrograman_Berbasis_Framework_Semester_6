@@ -10,5 +10,5 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
 ) {
-  res.status(200).json({ name: "John Doe", alamat: "Jl. Suka Suka no 1" });
+  res.status(200).json({ name: "John Doe", alamat: "Jl. Merdeka No. 123" });
 }

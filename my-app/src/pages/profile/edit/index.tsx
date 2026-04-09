@@ -1,10 +1,9 @@
-const EditProfilePage = () => {
+const editProfile = () => {
   return (
-    <div>
-      <h1>Edit Profile</h1>
-      <p>Ini adalah halaman /profile/edit.</p>
+    <div className="edit-profile">
+      <h1>edit Profile</h1>
     </div>
   )
 }
 
-export default EditProfilePage
+export default editProfile;

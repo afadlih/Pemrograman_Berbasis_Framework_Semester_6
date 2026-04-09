@@ -1,5 +1,9 @@
 const Appsetting = () => {
-  return <div>App Setting Page</div>;
+    return (
+    <div>
+        app setting page
+    </div>
+    );
 };
 
 export default Appsetting;

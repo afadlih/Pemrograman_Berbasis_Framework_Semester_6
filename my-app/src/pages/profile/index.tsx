@@ -1,10 +1,9 @@
-const ProfilePage = () => {
+const Profile = () => {
   return (
-    <div>
-      <h1>Halaman Profile</h1>
-      <p>Ini adalah halaman /profile.</p>
+    <div className="profile">
+      <h1>Profile</h1>
     </div>
   )
 }
 
-export default ProfilePage
+export default Profile;
