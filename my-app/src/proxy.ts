@@ -3,10 +3,10 @@ import { NextResponse } from "next/server";
 import withAuth from "./middleware/withAuth";
 
 export default withAuth(
-  function middleware() {
+  function proxy() {
     return NextResponse.next();
   },
-  ["/profile", "/about", "/produk"],
+  ["/profile", "/about", "/produk", "/admin", "/editor"],
 );
 
 export const config = {
@@ -17,5 +17,9 @@ export const config = {
     "/about/:path*",
     "/produk",
     "/produk/:path*",
+    "/admin",
+    "/admin/:path*",
+    "/editor",
+    "/editor/:path*",
   ],
 };

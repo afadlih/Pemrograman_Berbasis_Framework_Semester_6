@@ -1,31 +1,107 @@
-/* Add your SCSS styles for the register page here */
-
-$primary-color: #0070f3;
-$secondary-color: #f9f9f9;
-$text-color: #333;
-
 .register {
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* <-- penting */
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background-color: $secondary-color;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  padding: 20px;
 
-  h1 {
-    color: $text-color;
+  &__title {
+    width: 100%;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 40px;
   }
 
-  button {
-    background-color: $primary-color;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+  &__form {
+    background: #ffffff;
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 
-    &:hover {
-      background-color: darken($primary-color, 10%);
+    &__item {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+
+      &__text {
+        font-size: 14px;
+        color: #333;
+        margin-top: 8px;
+        text-align: center;
+      }
+
+      &__label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
+      }
+
+      &__input {
+        padding: 12px 14px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+
+        &:focus {
+          border-color: #2a5298;
+          outline: none;
+          box-shadow: 0 0 0 3px rgba(42, 82, 152, 0.2);
+        }
+      }
+      &__button {
+        width: 100%;
+        padding: 12px;
+        font-weight: 600;
+        color: #fff;
+        background: #2a5298;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s ease;
+
+        &:hover {
+          background-color: #1e3c72;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+
+  &__error {
+    color: red;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .register {
+    &__form {
+      padding: 30px 20px;
+    }
+    &__title {
+      font-size: 26px;
     }
   }
 }

@@ -29,5 +29,5 @@ export default async function handler(
   return res.status(500).json({ 
     revalidated: false,
     message: "Invalid query parameter. expected 'data=produk'.",
-  });
+   });
 }

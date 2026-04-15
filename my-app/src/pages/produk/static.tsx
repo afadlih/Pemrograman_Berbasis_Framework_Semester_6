@@ -6,8 +6,7 @@ const halamanProdukStatic = (props: { products: ProductType[] }) => {
   const { products } = props;
   return (
     <div>
-      <h1>Halaman Produk SSG</h1>
-      <p>Sumber data: <strong>export async function getStaticProps</strong></p>
+      <h1>Halaman Produk Static</h1>
       <TampilanProduk products={products} />
     </div>
   );
@@ -16,9 +15,11 @@ const halamanProdukStatic = (props: { products: ProductType[] }) => {
 export default halamanProdukStatic;
 
 export async function getStaticProps() {
+  const products = (await retrieveProducts("products")) as ProductType[];
+
   return {
     props: {
-      products: (await retrieveProducts("products")) as ProductType[],
+      products,
     },
     revalidate: 10,
   };
