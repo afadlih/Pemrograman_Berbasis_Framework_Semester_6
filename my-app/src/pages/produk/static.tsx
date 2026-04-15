@@ -20,5 +20,6 @@ export async function getStaticProps() {
     props: {
       products: (await retrieveProducts("products")) as ProductType[],
     },
+    revalidate: 10,
   };
 }

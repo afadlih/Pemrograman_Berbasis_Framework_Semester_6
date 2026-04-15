@@ -1,9 +1,99 @@
 .navbar {
   width: 100%;
-  height: 60px;
-  background-color: #333;
-  color: white;
+  height: 70px;
+  padding: 0 60px;
+
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  justify-content: space-between;
+
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #ffffff;
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Logo / Brand */
+.navbar__brand {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Right Section */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: nowrap;
+}
+
+/* Welcome text */
+.navbar__user {
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.9;
+  white-space: nowrap;
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+
+/* Button */
+.navbar__button {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  line-height: 1;
+  min-height: 38px;
+  min-width: 96px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Sign In */
+.navbar__button--primary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.navbar__button--primary:hover {
+  background-color: #2563eb;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.35);
+}
+
+/* Sign Out */
+.navbar__button--danger {
+  background-color: #ef4444;
+  color: white;
+}
+
+.navbar__button--danger:hover {
+  background-color: #dc2626;
+  box-shadow: 0 6px 14px rgba(220, 38, 38, 0.35);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .navbar__brand {
+    font-size: 18px;
+  }
+
+  .navbar__user {
+    display: none;
+  }
 }
