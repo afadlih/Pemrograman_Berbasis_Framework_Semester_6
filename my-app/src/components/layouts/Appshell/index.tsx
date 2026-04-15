@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import Navbar from "../navbar";
+import Navbar from "../Navbar";
 
 type AppShellProps = {
     children: React.ReactNode;

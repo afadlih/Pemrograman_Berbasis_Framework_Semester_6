@@ -1,33 +1,30 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import HeroSection from "@/components/produk/HeroSection";
-import MainSection from "@/components/produk/MainSection";
+import TampilanProduk from "../views/product";
+import useSWR from "swr";
+import fetcher from "../utils/swr/fetcher";
 
-const Produk = () => {
-  const [isLogin, setIsLogin] = useState(false);
-  const { push } = useRouter();
+const kategori = () => {
+  const { data, error, isLoading, mutate } = useSWR("/api/produk", fetcher);
+  const products = data?.data ?? [];
 
-  useEffect(() => {
-    const checkLoginStatus = () => {
-      const loggedIn = localStorage.getItem("isLogin");
-      setIsLogin(!!loggedIn);
-
-      if (!loggedIn) {
-        push("/auth/login");
-      }
-    };
-
-    checkLoginStatus();
-  }, []);
-
-  if (!isLogin) return null;
+  const handleRefresh = async () => {
+    await mutate();
+  };
 
   return (
-    <>
-      <HeroSection />
-      <MainSection />
-    </>
+    <div>
+      <div className="produk__toolbar">
+        <button
+          onClick={handleRefresh}
+          disabled={isLoading}
+          className="produk__refreshButton"
+        >
+          {isLoading ? "Loading..." : "Refresh Data"}
+        </button>
+      </div>
+      {error ? <p className="produk__error">Gagal memuat data produk.</p> : null}
+      <TampilanProduk products={products} />
+    </div>
   );
 };
 
-export default Produk;
+export default kategori;

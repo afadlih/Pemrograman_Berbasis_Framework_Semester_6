@@ -1,3 +1,5 @@
+# My App
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -11,6 +13,34 @@ yarn dev
 # or
 pnpm dev
 ```
+
+## Firebase Setup (Ganti Key ke Akun Baru)
+
+1. Buka [Firebase Console](https://console.firebase.google.com/) dengan akun baru kamu.
+2. Klik **Create a project** dan selesaikan wizard.
+3. Masuk ke **Project settings** > **General** > **Your apps**.
+4. Klik ikon **Web** (`</>`) untuk register web app.
+5. Salin nilai config Firebase dan isi ke file `.env.local` berdasarkan `.env.example`:
+
+```env
+NEXT_PUBLIC_FIREBASE_API_KEY=
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+NEXT_PUBLIC_FIREBASE_APP_ID=
+```
+
+1. Restart dev server setelah mengganti env:
+
+```bash
+npm run dev
+```
+
+Catatan:
+
+- File `.env*` sudah di-ignore agar key tidak ikut ter-commit.
+- Kode juga masih fallback ke variabel lama `FIREBASE_*` supaya kompatibel.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
