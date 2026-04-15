@@ -1,6 +1,6 @@
 import Image from "next/image";
-import styles from "../../produk/product.module.scss";
-
+import Link from "next/link";
+import styles from "../../pages/produk/product.module.scss";
 type ProductType = {
   id: string;
   name: string;
@@ -10,16 +10,7 @@ type ProductType = {
   ukuran?: string;
   category: string;
   image?: string;
-  productLink?: string;
 };
-
-function getProductImage(product: ProductType) {
-  return product.image ?? "";
-}
-
-function getProductLink(product: ProductType) {
-  return product.productLink ?? "";
-}
 
 const priceFormatter = new Intl.NumberFormat("id-ID", {
   style: "currency",
@@ -28,9 +19,7 @@ const priceFormatter = new Intl.NumberFormat("id-ID", {
   maximumFractionDigits: 0,
 });
 
-// cSpell:disable
 const TampilanProduk = ({ products }: { products: ProductType[] }) => {
-// cSpell:enable
   return (
     <div className={styles.produk}>
       <h1 className={styles.produk__title}>Daftar Produk</h1>
@@ -44,45 +33,27 @@ const TampilanProduk = ({ products }: { products: ProductType[] }) => {
                   : typeof product.harga === "number"
                     ? product.harga
                     : null;
-              const displaySize = product.size ?? product.ukuran ?? "-";
-              const imageSrc = getProductImage(product);
-              const productLink = getProductLink(product);
 
               return (
                 <div key={product.id} className={styles.produk__content__item}>
-                  {imageSrc ? (
+                  <Link href={`/produk/${product.id}`} className={styles.produk__content__itemLink}>
                     <Image
-                      src={imageSrc}
+                      src={product.image ?? ""}
                       alt={product.name}
                       className={styles.produk__content__item__image}
                       width={200}
                       height={200}
                     />
-                  ) : (
-                    <div className={styles.produk__content__skeleton__image} />
-                  )}
-                  <h4 className={styles.produk__content__item__name}>
-                    {product.name}
-                  </h4>
-                  <p className={styles.produk__content__item__category}>
-                    kategori: {product.category}
-                  </p>
-                  {productLink ? (
+                    <h4 className={styles.produk__content__item__name}>
+                      nama : {product.name}
+                    </h4>
                     <p className={styles.produk__content__item__category}>
-                      <a href={productLink} target="_blank" rel="noreferrer">
-                        Lihat Link Produk
-                      </a>
+                      kategori: {product.category}
                     </p>
-                  ) : null}
-                  <p className={styles.produk__content__item__category}>
-                    ukuran: {displaySize}
-                  </p>
-                  <p className={styles.produk__content__item__price}>
-                    Harga:{" "}
-                    {displayPrice !== null
-                      ? priceFormatter.format(displayPrice)
-                      : "-"}
-                  </p>
+                    <p className={styles.produk__content__item__price}>
+                      Harga: {displayPrice !== null ? priceFormatter.format(displayPrice) : "-"}
+                    </p>
+                  </Link>
                 </div>
               );
             })}

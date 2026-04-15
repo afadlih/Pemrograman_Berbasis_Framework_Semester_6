@@ -43,6 +43,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "www.screamous.com",
       },
+      {
+        protocol: "https",
+        hostname: "www.spiritapparel.co.id",
+      },
+      {
+        protocol: "https",
+        hostname: "spiritapparel.co.id",
+      },
     ],
   },
   turbopack: {

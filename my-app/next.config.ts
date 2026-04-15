@@ -18,6 +18,14 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
+      {
+        protocol: "https",
+        hostname: "www.spiritapparel.co.id",
+      },
+      {
+        protocol: "https",
+        hostname: "spiritapparel.co.id",
+      },
     ],
   },
   turbopack: {

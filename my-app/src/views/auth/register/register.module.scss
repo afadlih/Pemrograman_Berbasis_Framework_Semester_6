@@ -1,0 +1,31 @@
+/* Add your SCSS styles for the register page here */
+
+$primary-color: #0070f3;
+$secondary-color: #f9f9f9;
+$text-color: #333;
+
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: $secondary-color;
+
+  h1 {
+    color: $text-color;
+  }
+
+  button {
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}
